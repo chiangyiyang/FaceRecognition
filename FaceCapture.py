@@ -7,7 +7,6 @@ video_capture = cv2.VideoCapture(0)
 inx = 0
 
 while True:
-    # Capture frame-by-frame
     ret, frame = video_capture.read()
 
     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -24,8 +23,8 @@ while True:
     for (x, y, w, h) in faces:
         head = gray[y:y + h, x:x + w]
         # head = cv2.resize(head, (92/ w, 112/h), interpolation=cv2.INTER_CUBIC)
-        sX = 92.0/w
-        sY = 112.0/w
+        sX = 92.0 / w
+        sY = 112.0 / w
         head = cv2.resize(head, None, fx=sX, fy=sY, interpolation=cv2.INTER_CUBIC)
         # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         # print "X: %d Y: %d W: %d, H: %d" % (x, y, w, h)

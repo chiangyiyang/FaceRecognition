@@ -128,7 +128,7 @@ if __name__ == "__main__":
     #
     # model.predict is going to return the predicted label and
     # the associated confidence:
-    [p_label, p_confidence] = model.predict(np.asarray(X[10]))
+    [p_label, p_confidence] = model.predict(np.asarray(X[402]))
     # Print it:
     print "Predicted label = %d (confidence=%.2f)" % (p_label, p_confidence)
     # Cool! Finally we'll plot the Eigenfaces, because that's
