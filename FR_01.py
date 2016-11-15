@@ -78,18 +78,18 @@ if __name__ == "__main__":
         pickle.dump(y, f)
     # model2 = cv2.createEigenFaceRecognizer()
     # model2.load("faces.yml")FR_01.py
-    im = cv2.imread("./user3.pgm", cv2.IMREAD_GRAYSCALE)
+    # im = cv2.imread("./user3.pgm", cv2.IMREAD_GRAYSCALE)
     # [p_label, p_confidence] = model.predict(np.asarray(X[402]))
-    [p_label, p_confidence] = model.predict(im)
-    print "Predicted label = %d %s (confidence=%.2f)" % (p_label, names[y.tolist().index(p_label)], p_confidence)
-    print model.getParams()
-    # Now let's get some data:
-    mean = model.getMat("mean")
-    eigenvectors = model.getMat("eigenvectors")
-    # We'll save the mean, by first normalizing it:
-    mean_norm = normalize(mean, 0, 255, dtype=np.uint8)
-    mean_resized = mean_norm.reshape(X[0].shape)
-    if out_dir is None:
-        cv2.imshow("mean", mean_resized)
-    else:
-        cv2.imwrite("%s/mean.png" % (out_dir), mean_resized)
+    # [p_label, p_confidence] = model.predict(im)
+    # print "Predicted label = %d %s (confidence=%.2f)" % (p_label, names[y.tolist().index(p_label)], p_confidence)
+    # print model.getParams()
+    # # Now let's get some data:
+    # mean = model.getMat("mean")
+    # eigenvectors = model.getMat("eigenvectors")
+    # # We'll save the mean, by first normalizing it:
+    # mean_norm = normalize(mean, 0, 255, dtype=np.uint8)
+    # mean_resized = mean_norm.reshape(X[0].shape)
+    # if out_dir is None:
+    #     cv2.imshow("mean", mean_resized)
+    # else:
+    #     cv2.imwrite("%s/mean.png" % (out_dir), mean_resized)

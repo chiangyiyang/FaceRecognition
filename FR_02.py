@@ -1,9 +1,8 @@
 #!/usr/bin/env python
-import os
-import sys
+# -*- coding: UTF-8 -*-
 import cv2
-import numpy as np
 import pickle
+from TextToSpeech import TextToSpeech
 
 
 def getName(model, y, names, img):
@@ -43,7 +42,7 @@ while True:
         sX = 92.0 / w
         sY = 112.0 / w
         head = cv2.resize(head, None, fx=sX, fy=sY, interpolation=cv2.INTER_CUBIC)
-        head = cv2.equalizeHist(head)
+        # head = cv2.equalizeHist(head)
         cv2.imshow('Clip', head)
         cv2.moveWindow('Clip', 700, 0)
         cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
@@ -53,11 +52,11 @@ while True:
         else:
             cv2.putText(frame, "???", (x, y), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255))
             # print "X: %d Y: %d W: %d, H: %d" % (x, y, w, h)
-
+    
     # Display the resulting frame
     cv2.imshow('Video', frame)
     cv2.moveWindow('Video', 0, 0)
-
+    
     k = cv2.waitKey(1) & 0xFF
     if k == ord('q'):
         break
@@ -69,6 +68,8 @@ while True:
     elif k == ord('i'):
         name, conf = getName(model, indices, names, head)
         print " %s %.2f " % (name, conf)
+        strToSay = u"你好嗎" + name
+        TextToSpeech.saySomthing(strToSay, "zh-tw")
 # When everything is done, release the capture
 video_capture.release()
 cv2.destroyAllWindows()
