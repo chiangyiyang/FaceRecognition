@@ -26,15 +26,15 @@ while True:
         sX = 92.0 / w
         sY = 112.0 / w
         head = cv2.resize(head, None, fx=sX, fy=sY, interpolation=cv2.INTER_CUBIC)
+        cv2.imshow('Clip', head)
+        cv2.moveWindow('Clip', 700, 0)
         # cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
         # print "X: %d Y: %d W: %d, H: %d" % (x, y, w, h)
     
     # Display the resulting frame
     cv2.imshow('Video', frame)
     # head = cv2.equalizeHist(head)
-    cv2.imshow('Clip', head)
     cv2.moveWindow('Video', 0, 0)
-    cv2.moveWindow('Clip', 700, 0)
     k = cv2.waitKey(1) & 0xFF
     if k == ord('q'):
         break
