@@ -31,7 +31,7 @@ def read_images(path, sz=None):
     Returns:
         A list [X,y]
 
-            X: The images, which is a Python list of numpy arrays.
+            X: The images, which is a Python list of numpy arrays. 
             y: The corresponding labels (the unique number of the subject, person) in a Python list.
     """
     c = 0
